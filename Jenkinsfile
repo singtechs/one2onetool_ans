@@ -42,7 +42,7 @@ pipeline {
                 sh 'git config --global user.name "Jenkins"'
                 sh 'git tag -l | xargs git tag -d'
                 sh 'git fetch --tags'
-                sh 'npm version major -m "[ci skip] Upgrade to %s"'
+                //sh 'npm version major -m "[ci skip] Upgrade to %s"'
                 script { 
                     if (env.BRANCH_NAME=="master") {
                         withCredentials([usernamePassword(credentialsId: 'd4348e81-5ed5-4385-b2c4-9a49c40eb582', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
