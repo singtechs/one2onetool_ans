@@ -45,9 +45,9 @@ pipeline {
                 //sh 'npm version major -m "[ci skip] Upgrade to %s"'
                 script { 
                     if (env.BRANCH_NAME=="master") {
-                        withCredentials([usernamePassword(credentialsId: 'd4348e81-5ed5-4385-b2c4-9a49c40eb582', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        withCredentials([usernamePassword(credentialsId: 'e681cd13-0f88-4a24-8bb5-e42e2245fdc5', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                             sh('git stage package.json')
-                            sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dulcet1986/one2onetool.git HEAD:master')
+                            sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/singtechs/one2onetool.git HEAD:master')
                         }
                     }
                 }
