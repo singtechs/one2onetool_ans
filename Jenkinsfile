@@ -92,9 +92,10 @@ pipeline {
             steps {
                 script {
                     sh 'export AWS_DEFAULT_OUTPUT="json"'
-                    withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID')]) {
-                        sh 'aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}'
-                    }
+                    withAWS(credentials: 'AWS_ACCESS_KEY_ID', region: 'us-west-2') {
+                    //withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID')]) {
+                        //sh 'aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}'
+                    //}
                     //withCredentials([string(credentialsId: 'AWS_Secret_Access_Key', variable: 'AWS_Secret_Access_Key')]) {
                     //    sh 'aws configure set aws_secret_access_key ${AWS_Secret_Access_Key}'
                     //}
@@ -106,6 +107,7 @@ pipeline {
                         sh './deploy_ecs.sh'
                     } 
                 }
+
             }
         } 
         stage('Cleanup image') {
