@@ -38,7 +38,7 @@ pipeline {
                 sh 'npm install'
                 sh 'npm test'
                 sh 'echo "Tests passed"'
-                sh 'git config --global user.email "yaofeng.demo@gmail.com"'
+                sh 'git config --global user.email "brigeshbgp@gmail.com"'
                 sh 'git config --global user.name "Jenkins"'
                 sh 'git tag -l | xargs git tag -d'
                 sh 'git fetch --tags'
