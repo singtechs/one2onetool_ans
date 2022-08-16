@@ -32,4 +32,11 @@
     "eslint-plugin-import": "^2.8.0",
     "jest": "^21.2.1"
   }
+  "jest": {
+    "verbose": true,
+    "modulePathIgnorePatterns": [
+      "npm-cache",
+      ".npm"
+    ]
+  }
 }
