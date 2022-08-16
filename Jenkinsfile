@@ -107,6 +107,7 @@ pipeline {
                         sh './deploy_ecs.sh'
                     } 
                 }
+                }
 
             }
         } 
