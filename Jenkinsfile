@@ -95,9 +95,9 @@ pipeline {
                     withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID')]) {
                         sh 'aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}'
                     }
-                    withCredentials([string(credentialsId: 'AWS_Secret_Access_Key', variable: 'AWS_Secret_Access_Key')]) {
-                        sh 'aws configure set aws_secret_access_key ${AWS_Secret_Access_Key}'
-                    }
+                    //withCredentials([string(credentialsId: 'AWS_Secret_Access_Key', variable: 'AWS_Secret_Access_Key')]) {
+                    //    sh 'aws configure set aws_secret_access_key ${AWS_Secret_Access_Key}'
+                    //}
                     sh 'aws configure set default.region ap-southeast-1'
                     if (env.BRANCH_NAME=="staging") {
                         echo 'Staging branch detected, deploying with test data'
