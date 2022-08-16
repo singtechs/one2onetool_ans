@@ -1,0 +1,24 @@
+{
+    "family": "one2onetool",
+    "containerDefinitions": [
+        {
+            "image": "singtechs/one2onetool:v_%BUILD_NUMBER%",
+            "environment": [
+                {
+                  "name": "DATA_FILE",
+                  "value": "Questions-test.json"
+                }
+            ],
+            "name": "one2onetool",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 80
+                }
+            ]
+        }
+    ]
+}
