@@ -128,7 +128,7 @@ pipeline {
         failure {
             echo 'Sending Email'
             script {
-                def mailRecipients = "yaofeng.demo@gmail.com"
+                def mailRecipients = "brigeshbgp@gmail.com"
                 def jobName = currentBuild.fullDisplayName
 
                 emailext body: "FAILED: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
