@@ -62,7 +62,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("dulcet/one2onetool")
+                    app = docker.build("singtechs/one2onetool")
                 }
             }
         }
@@ -117,9 +117,9 @@ pipeline {
             }
             steps {
                 script {
-                    sh 'docker rmi -f dulcet/one2onetool:latest'
-                    sh 'docker rmi -f registry.hub.docker.com/dulcet/one2onetool:latest'
-                    sh 'docker rmi -f registry.hub.docker.com/dulcet/one2onetool:v_$BUILD_NUMBER'
+                    sh 'docker rmi -f singtechs/one2onetool:latest'
+                    sh 'docker rmi -f registry.hub.docker.com/singtechs/one2onetool:latest'
+                    sh 'docker rmi -f registry.hub.docker.com/singtechs/one2onetool:v_$BUILD_NUMBER'
                 }
             }
         }
