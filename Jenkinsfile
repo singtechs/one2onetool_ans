@@ -27,7 +27,7 @@ pipeline {
         // Push docker image to docker-hub
         stage('Push Docker Image'){
             steps{
-                withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+                withCredentials([string(credentialsId: 'docker-pwd', variable: 'singtechs')]) {
                 sh "docker login -u singtechs -p ${dockerHubPwd}"
                 }
                 sh 'docker push singtechs/one2onetool:${DOCKER_TAG}'
