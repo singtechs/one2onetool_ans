@@ -20,7 +20,7 @@ pipeline {
         // Build docker image
         stage('Build Docker Image'){
             steps{
-                sh 'docker build . -t praveeshmoorkoth/mylab:${DOCKER_TAG} --build-arg DATA_FILE_VAR=${FILE_NAME}'
+                sh 'docker build . -t singtechs/one2onetool:${DOCKER_TAG} --build-arg DATA_FILE_VAR=${FILE_NAME}'
             }
         }
 
@@ -28,9 +28,9 @@ pipeline {
         stage('Push Docker Image'){
             steps{
                 withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-                sh "docker login -u praveeshmoorkoth -p ${dockerHubPwd}"
+                sh "docker login -u singtechs -p ${dockerHubPwd}"
                 }
-                sh 'docker push praveeshmoorkoth/mylab:${DOCKER_TAG}'
+                sh 'docker push singtechs/one2onetool:${DOCKER_TAG}'
             }
         }
 
@@ -58,7 +58,7 @@ def notifyBuild() {
   	emailext (
     	subject: subject,
       	body: details,
-       	to: 'praveeshtestgm@gmail.com',
+       	to: 'brigeshbgp@gmail.com',
        	recipientProviders: [[$class: 'CulpritsRecipientProvider'],[$class: 'RequesterRecipientProvider'],[$class: 'DevelopersRecipientProvider']],
     )
 }
