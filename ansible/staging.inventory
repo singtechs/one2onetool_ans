@@ -1,0 +1,2 @@
+[webservers]
+10.0.0.214 ansible_user=centos ansible_connection=ssh

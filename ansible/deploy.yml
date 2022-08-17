@@ -1,0 +1,35 @@
+- hosts: webservers
+  become: True
+  tasks:
+    - name: Install python & docker packages
+      yum:
+        name: python3,docker
+        state: present
+
+    - name: install docker packages
+      pip:
+        name: docker
+        state: present
+        executable: pip3
+
+    - name: start docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Setting facts so that they will be persisted in the fact cache
+      set_fact:
+        ansible_python_interpreter: /usr/bin/python3
+
+    - debug:
+        msg: "Deploying image:{{image_name}}:{{release_tag}}"
+
+    - name: Create  container
+      docker_container:
+        name: nodeapp
+        image: "{{image_name}}:{{release_tag}}"
+        published_ports: ["8082:8082"]
+
+    - name: Check if container is running
+      shell: docker ps
